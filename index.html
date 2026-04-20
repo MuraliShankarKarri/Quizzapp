@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  
+
+  <div class="quiz-wrapper">
+
+    <!-- ── HEADER ── -->
+    <div class="quiz-header">
+      <div class="quiz-brand">&#9670; QuizMaster</div>
+      <div class="quiz-counter">
+        Question <span id="current-num">1</span> of <span>40</span>
+      </div>
+    </div>
+
+    <!-- ── PROGRESS BAR ── -->
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-bar" style="width:2.5%"></div>
+      </div>
+      <div class="progress-labels">
+        <span id="answered-label">0 answered</span>
+        <span id="pct-label">2%</span>
+      </div>
+    </div>
+
+    <!-- ── QUESTION CARD ── -->
+    <div class="question-card">
+      <div class="q-badge" id="q-badge">Question 01</div>
+      <div class="q-text"  id="q-text"></div>
+    </div>
+
+    <!-- ── OPTIONS ── -->
+    <div class="options-list" id="options-list"></div>
+
+    <!-- ── NAVIGATION ── -->
+    <div class="nav-bar">
+      <button class="nav-btn" id="prev-btn">&#8592; Previous</button>
+      <div class="dots-row" id="dots-row"></div>
+      <button class="nav-btn primary" id="next-btn">Next &#8594;</button>
+    </div>
+
+    <!-- ── FOOTER NOTE ── -->
+    <div class="review-note" id="review-note"></div>
+
+  </div>
+
+  <!-- ── RESULT MODAL ── -->
+  <div class="modal-overlay" id="result-modal" style="display:none;">
+    <div class="modal-box">
+
+      <div class="modal-emoji" id="modal-emoji"></div>
+      <div class="modal-title">Quiz Complete!</div>
+      <div class="modal-pct"   id="modal-pct"></div>
+      <div class="modal-grade" id="modal-grade"></div>
+
+      <div class="modal-stats">
+        <div class="stat-box">
+          <div class="stat-val c" id="stat-c">0</div>
+          <div class="stat-label">Correct</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val w" id="stat-w">0</div>
+          <div class="stat-label">Wrong</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val s" id="stat-s">0</div>
+          <div class="stat-label">Skipped</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-btn secondary" onclick="reviewAnswers()">Review Answers</button>
+        <button class="modal-btn primary"   onclick="restartQuiz()">&#8635; Try Again</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
